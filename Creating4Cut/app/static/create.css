@@ -1,0 +1,28 @@
+body{
+    margin:0;
+    display:flex;
+    justify-content: center;
+    background-color: bisque;
+}
+
+.container {
+    /* 390이 핸드폰 너비랑 비슷함 */
+    width : 390px;
+    background-color: #ff9d73;
+    /* body 태그 만큼을 높이로 가져간다는 뜻 */
+    height: 100%
+}
+
+.photo-frame {
+    background-color: white;
+    margin: 15px 20px;
+    height: 200px;
+    background-size: cover;
+
+    position: relative;
+    cursor: pointer;
+}
+
+#copy_div {
+    width: 390px;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating4Cut</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '../static/create.css' %}"
+</head>
+<body>
+    <div class="container">
+        <div class="photos">
+            <div class="photo-frame">
+                <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label for="title">제목:</label>
+                    <input type="text" name="title" id="title"><br>
+                    <label for="content">내용:</label>
+                    <input type="text" name="content">
+                    <input type="file" name="imgs" multiple>
+                    <input type="submit" value="작성하기">
+                </form>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

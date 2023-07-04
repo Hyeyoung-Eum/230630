@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+$("#copy").on("click",function(){
+
+html2canvas($('#copy_div')[0]).then(function(canvas){
+
+var img = document.createElement("a");
+
+img.download = "test.png";
+
+img.href=canvas.toDataURL();
+
+document.body.appendChild(img);
+
+img.click();
+
+});
+
+});
+
+});
+
+</script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="photos" class="copy_div" id="copy_div">
+            {% for photo in post.photo_set.all %}
+                <img class="photo-frame" src="{{photo.image.url}}" height="200"><br>
+            {% endfor %}
+        </div>
+        <button type="button" id="copy">복사</button>
+        <a href="{% url 'create' %}">새로 만들기</a>
+    </div>
+</body>
+</html>
